@@ -213,11 +213,12 @@ a, button, input, textarea {
 }
 
 .trade-content .item01 {
-	background-image: url('../images/1.png');
+	background-image: url(../images/2.png);
 }
 
 .trade-content .item02 {
-    background-image: url(../images/2.png);
+	
+	background-image: url('../images/1.png');
 }
 
 /*.trade-content .item03 {
