@@ -306,7 +306,8 @@ namespace WebProject.Controllers {
 			ViewData["CountOfPhotos"] = countOfPhotos.ToString();
 			//取第page*30+30张图片
 			for (int i = (Page - 1) * countOfPhotos; i < Page * countOfPhotos && i < allPictures.Count(); i++) {
-				var index = allPictures[i].LastIndexOf ('\\') + 1;
+				allPictures[i]=allPictures[i].Replace('\\', '/');
+				var index = allPictures[i].LastIndexOf ('/') + 1;
 				var pictureName = allPictures[i].Substring (index);
 				pictureList.Add (pictureName);
 			}
@@ -455,9 +456,9 @@ namespace WebProject.Controllers {
 			//取第page*30+30张图片
 			for (int i = (page - 1) * countOfPhotos; i < page * countOfPhotos && i < allPictures.Count(); i++)
 			{
-
+				allPictures[i] = allPictures[i].Replace('\\', '/');
 				//  D:/asdasdad/asdsad/asdasd/images/46f060ffffffss/1.jpg
-				var _index = allPictures[i].LastIndexOf('\\') ;
+				var _index = allPictures[i].LastIndexOf('/') ;
 				var pictureName = allPictures[i].Substring(_index);
 				var picturePath = model.Path + pictureName;
 				pictureList.Add(picturePath);
@@ -518,9 +519,9 @@ namespace WebProject.Controllers {
 			//取第page*30+30张图片
 			for (int i = (page - 1) * countOfPhotos; i < page * countOfPhotos && i < allPictures.Count(); i++)
 			{
-
+				allPictures[i] = allPictures[i].Replace('\\', '/');
 				//  D:/asdasdad/asdsad/asdasd/images/46f060ffffffss/1.jpg
-				var _index = allPictures[i].LastIndexOf('\\');
+				var _index = allPictures[i].LastIndexOf('/');
 				var pictureName = allPictures[i].Substring(_index);
 				var picturePath = model.Path + pictureName;
 				pictureList.Add(picturePath);
