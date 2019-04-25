@@ -264,3 +264,4 @@ __pycache__/
 WebProject/wwwroot/images/Albums/*
 WebProject/wwwroot/mp3/*.mp3
 WebProject/wwwroot/images/ProfilePhotos/*
+!WebProject/wwwroot/images/ProfilePhotos/placeholder.txt

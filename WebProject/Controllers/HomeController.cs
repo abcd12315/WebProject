@@ -52,7 +52,7 @@ namespace WebProject.Controllers
 		public IActionResult Contact(ContactModel model)
 		{
 			string titleWithName = $"You have received a Meesage From{model.Name}";
-			string contentWithEmail = $"this is Message from ${model.Email}:and its title is {model.Content},here is the content of message:\n{model.Content}";
+			string contentWithEmail = $"this is Message from ${model.Email}:and its title is {model.Title},here is the content of message:\n{model.Content}";
 			_emailSender.SendEmailAsync("398212699@qq.com", titleWithName, contentWithEmail);
 
 

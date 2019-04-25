@@ -2,48 +2,43 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-<input type="hidden" id="isInPopover"  />
+<input type="hidden" id="isInPopover" />
 
 <style>
 	.glyphicon.glyphicon-user {
-		font-size:20px;
+		font-size: 20px;
 	}
 
 	.albumLink {
 		/*background-color:lightcoral;*/
 		margin-top: 10px;
 	}
-	.myNavbar {
-		height:50px;
-	}
+
+
+
 	.profilePhoto {
 		height: 50px;
-		width:50px;
+		width: 50px;
 		/*border: 1px solid lightblue;
 		border-radius: 5px;*/
 	}
+
 	.photoContainer {
-		text-align:center;
-
-
+		text-align: center;
 	}
 
-	.photoContainer img {
-		position:relative;
-		height:100px;
-		width:100px;
-		top:-20px;
-
-
-	}
-	
-
+		.photoContainer img {
+			position: relative;
+			height: 100px;
+			width: 100px;
+			top: -60px;
+		}
 </style>
 <ul class="navbar-nav mr-auto">
 	@if (SignInManager.IsSignedIn(User))
 	{
 		var user = await UserManager.GetUserAsync(User);
-		
+
 		ViewData["gender"] = user.Gender;
 		var ProfilePhotoPath = user.ProfilePhotoPath;
 		if (string.IsNullOrEmpty(ProfilePhotoPath))
@@ -84,7 +79,7 @@
 	if (SignInManager.IsSignedIn(User))
 	{
 		var user2 = await UserManager.GetUserAsync(User);
-<script>
+		<script>
 		var html = '<div class="row"  >\
 			<div class="col-sm-12 text-center"><i class="glyphicon glyphicon-user"></i></div>\
 <div class="col-sm-12 text-center"><h1>@user2.UserName</h1></div>\
@@ -102,100 +97,59 @@
 </div>\
 </div>\
 ';
+		html = $(html);
 
 
-	$('#showProfileButton').popover(
-		{
-			trigger: 'manual',
-			html: true,
-			title: '<div class="photoContainer"><img src="'+'@ViewData["ProfilePhotoPath"]'+'" class="rounded-circle img-fluid myProfilePhoto" /></div>',
-			content: html,
-			placement: 'bottom',
-			container: 'body',
-			delay: { hide: 100 }
+			$('#showProfileButton').popover(
+				{
+					trigger: 'manual',
+					html: true,
+					title: '<div class="photoContainer"><img src="' + '@ViewData["ProfilePhotoPath"]' + '" class="rounded-circle img-fluid myProfilePhoto" /></div>',
+					content: html[0],
+					placement: 'bottom',
+					container: 'body',
+					delay: { hide: 100 }
 
-		}
+				}
 
-		)
-		$('#showProfileButton').mouseenter(function () {
+			);
+			$('#showProfileButton').mouseenter(function () {
 
 
-			$("#profilePhoto").hide();
-
-			$('#showProfileButton').popover('show')
-					var gender = "@ViewData["gender"]";
-		if (gender == "Boy") {
-			$(".glyphicon.glyphicon-user")[0].style["color"] = "blue";
-
-		}
-		else if (gender == "Girl") {
-
-			$(".glyphicon.glyphicon-user")[0].style["color"] = "red";
-		}
+				//$("#profilePhoto").hide();
+				$("#profilePhoto")[0].style["visibility"] = "hidden";
+				$('#showProfileButton').popover('show')
 
 				$(".photoContainer").parent().parent()[0].style["margin-top"] = "20px";
 				$(".photoContainer").parent().parent().mouseleave(function () {
 
 					$('#showProfileButton').popover('hide')
-					$("#profilePhoto").show()
+					//$("#profilePhoto").show()
+					$("#profilePhoto")[0].style["visibility"] = ""
 				}
-
-
-				)
+				);
 
 
 			}
 
+			);
 
 
+		</script>
 
+	}
+}
+@* 初始化头像颜色 *@
+<script>
+		var gender = "@ViewData["gender"]";
+		if (gender == "Boy") {
+			html.children().eq(0).children().eq(0)[0].style["color"] = "blue";
 
-		)
-		//根据性别,改变图标的颜色
+		}
+		else if (gender == "Girl") {
 
-		//$('[data-toggle="popover"]').on('shown.bs.popover', function (event) {
-		//	// do something...
-
-		//	//$(".photoContainer").parent().parent()[0].style["margin-top"] = "0px";
-
-
-		//	$(".photoContainer").parent().parent().mouseenter(function () {
-
-		//		$("#isInPopover").val("true");
-
-		//	})
-		//	$(".photoContainer").parent().parent().mouseleave(function () {
-
-		//		$("#isInPopover").val("false");
-		//	})
-
-
-		//	$("#profilePhoto").hide();
-
-
-		//})
-		//$('[data-toggle="popover"]').on('hidden.bs.popover', function (event) {
-		//	// do something...
-		//	var val = $("#isInPopover").val();
-		//	if (val == "true") {
-
-		//		event.preventDefault();
-		//	}
-		//	else {
-		//		$("#profilePhoto").show();
-		//	}
-
-
-
-
-		//	//if ($(relateTarget:hover)) {
-		//	//	alert("123");
-
-		//	//}
-		//})
+			html.children().eq(0).children().eq(0)[0].style["color"] = "red";
+		}
 
 
 </script>
-
-		}
-	}
