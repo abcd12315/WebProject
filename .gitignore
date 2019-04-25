@@ -262,5 +262,5 @@ __pycache__/
 
 # images 
 WebProject/wwwroot/images/Albums/*
-WebProject/wwwroot/mp3/*
+WebProject/wwwroot/mp3/*.mp3
 WebProject/wwwroot/images/ProfilePhotos/*
