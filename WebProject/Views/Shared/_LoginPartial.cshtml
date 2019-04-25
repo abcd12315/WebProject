@@ -1,26 +1,201 @@
 @using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
-<ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-    </li>
-}
-else
-{
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
-}
+<input type="hidden" id="isInPopover"  />
+
+<style>
+	.glyphicon.glyphicon-user {
+		font-size:20px;
+	}
+
+	.albumLink {
+		/*background-color:lightcoral;*/
+		margin-top: 10px;
+	}
+	.myNavbar {
+		height:50px;
+	}
+	.profilePhoto {
+		height: 50px;
+		width:50px;
+		/*border: 1px solid lightblue;
+		border-radius: 5px;*/
+	}
+	.photoContainer {
+		text-align:center;
+
+
+	}
+
+	.photoContainer img {
+		position:relative;
+		height:100px;
+		width:100px;
+		top:-20px;
+
+
+	}
+	
+
+</style>
+<ul class="navbar-nav mr-auto">
+	@if (SignInManager.IsSignedIn(User))
+	{
+		var user = await UserManager.GetUserAsync(User);
+		
+		ViewData["gender"] = user.Gender;
+		var ProfilePhotoPath = user.ProfilePhotoPath;
+		if (string.IsNullOrEmpty(ProfilePhotoPath))
+		{
+
+			ViewData["ProfilePhotoPath"] = "/images/default.jpg";
+		}
+		else
+		{
+			ViewData["ProfilePhotoPath"] = ProfilePhotoPath;
+		}
+
+
+		<li class="nav-item "><a class="nav-item" href="/User/Index" id="showProfileButton" data-toggle="popover"><img id="profilePhoto" class="profilePhoto rounded-circle img-fluid nav-item" src="@ViewData["ProfilePhotoPath"]" /></a></li>
+
+		<li class="nav-item">
+			<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @user.UserName!</a>
+		</li>
+		<li class="nav-item">
+			<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+				<button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+			</form>
+		</li>
+		//Get the profile photo path
+
+	}
+	else
+	{
+		<li class="nav-item">
+			<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+		</li>
+	}
 </ul>
+@{
+	if (SignInManager.IsSignedIn(User))
+	{
+		var user2 = await UserManager.GetUserAsync(User);
+<script>
+		var html = '<div class="row"  >\
+			<div class="col-sm-12 text-center"><i class="glyphicon glyphicon-user"></i></div>\
+<div class="col-sm-12 text-center"><h1>@user2.UserName</h1></div>\
+<div class="col-sm-12 text-center albumLink" >\
+    <a class="btn btn-primary btn-block btn-lg" href="/User/Profile">Profile</a>\
+</div>\
+<div class="col-sm-12 text-center albumLink">\
+    <a class="btn btn-primary btn-block btn-lg" href="/User/Album">Album</a>\
+</div>\
+<div class="col-sm-12 text-center albumLink">\
+    <a class="btn btn-primary btn-block btn-lg" href="/User/EditProfilePhoto">Profile Photo</a>\
+</div>\
+<div class="col-sm-12 text-center albumLink">\
+    <a class="btn btn-primary btn-block btn-lg" href="/User/Log">Log</a>\
+</div>\
+</div>\
+';
+
+
+	$('#showProfileButton').popover(
+		{
+			trigger: 'manual',
+			html: true,
+			title: '<div class="photoContainer"><img src="'+'@ViewData["ProfilePhotoPath"]'+'" class="rounded-circle img-fluid myProfilePhoto" /></div>',
+			content: html,
+			placement: 'bottom',
+			container: 'body',
+			delay: { hide: 100 }
+
+		}
+
+		)
+		$('#showProfileButton').mouseenter(function () {
+
+
+			$("#profilePhoto").hide();
+
+			$('#showProfileButton').popover('show')
+					var gender = "@ViewData["gender"]";
+		if (gender == "Boy") {
+			$(".glyphicon.glyphicon-user")[0].style["color"] = "blue";
+
+		}
+		else if (gender == "Girl") {
+
+			$(".glyphicon.glyphicon-user")[0].style["color"] = "red";
+		}
+
+				$(".photoContainer").parent().parent()[0].style["margin-top"] = "20px";
+				$(".photoContainer").parent().parent().mouseleave(function () {
+
+					$('#showProfileButton').popover('hide')
+					$("#profilePhoto").show()
+				}
+
+
+				)
+
+
+			}
+
+
+
+
+
+		)
+		//根据性别,改变图标的颜色
+
+		//$('[data-toggle="popover"]').on('shown.bs.popover', function (event) {
+		//	// do something...
+
+		//	//$(".photoContainer").parent().parent()[0].style["margin-top"] = "0px";
+
+
+		//	$(".photoContainer").parent().parent().mouseenter(function () {
+
+		//		$("#isInPopover").val("true");
+
+		//	})
+		//	$(".photoContainer").parent().parent().mouseleave(function () {
+
+		//		$("#isInPopover").val("false");
+		//	})
+
+
+		//	$("#profilePhoto").hide();
+
+
+		//})
+		//$('[data-toggle="popover"]').on('hidden.bs.popover', function (event) {
+		//	// do something...
+		//	var val = $("#isInPopover").val();
+		//	if (val == "true") {
+
+		//		event.preventDefault();
+		//	}
+		//	else {
+		//		$("#profilePhoto").show();
+		//	}
+
+
+
+
+		//	//if ($(relateTarget:hover)) {
+		//	//	alert("123");
+
+		//	//}
+		//})
+
+
+</script>
+
+		}
+	}

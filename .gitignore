@@ -259,3 +259,8 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+
+# images 
+WebProject/wwwroot/images/Albums/*
+WebProject/wwwroot/mp3/*
+WebProject/wwwroot/images/ProfilePhotos/*

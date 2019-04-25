@@ -1,0 +1,481 @@
+﻿@model ShowAlbumModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration configuration
+@{
+	ViewData["Title"] = "ShowAlbum";
+}
+<style>
+	.picture {
+		height: 200px;
+		width: 100%;
+	}
+
+	.imgDiv {
+		height: 250px;
+	}
+
+	[name=showDialogButton] {
+		position: absolute;
+		bottom: 0;
+	}
+
+	.imgDiv {
+		margin-top: 30px;
+	}
+</style>
+@{int? count = configuration.GetValue(typeof(int),"CountOfPhotos") as int?;
+	int countInt = (int)count;
+<input type="hidden" id="countOfPhotos" value=@countInt />
+<h1>ShowAlbum</h1>
+}
+
+<button data-toggle="modal" data-target="#myModal" class="btn btn-primary">Upload Your Photos</button>
+<form>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">please choose image type files</h4>
+				</div>
+				<div class="modal-body">
+					
+					<input type="file" name="photos" id="txt_file" multiple class="file-loading" />
+					<input type="hidden" name="path" value=@Model.Path />
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+
+@* show top 30 photos from album   *@
+
+<div id="pictures" class="row"></div>
+
+<nav aria-label="...">
+	<ul class="pagination" id="pagination">
+		<li class="page-item  ">
+			<a class="page-link" tabindex="-1" aria-disabled="true">Previous</a>
+		</li>
+		@*<li class="page-item active"><a class="page-link">1</a></li>
+			<li class="page-item" aria-current="page">
+				<a class="page-link">2 <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="page-item"><a class="page-link">3</a></li>
+		*@
+		<li class="page-item">
+			<a class="page-link">Next</a>
+		</li>
+	</ul>
+	<input type="hidden" id="Path" value=@Model.Path>
+	<input type="hidden" id="pageCount" value=1 />
+	<input type="hidden" id="frontPicture" />
+</nav>
+
+@* 这里可以客户端处理 *@
+<a class="btn btn-primary" href=@ViewData["returnUrl"]>Back</a>
+<a id="showCircledAlbumButton" class="btn btn-primary" href="#" target="_blank">View In Circle</a>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+	pick front photo
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="row" id="photosToBeChosen">
+
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" id="deletePhotoButton">Close</button>
+				<button type="button" class="btn btn-primary" id="changeFrontPhotoButton">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+@* Modal Dialog *@
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" id="deleteAlbumButton">Yes</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(function () {
+		path = $("#Path").val();
+		GetPictures(1);
+			
+		$.post("/User/ShowAlbum", {
+			Path: path,
+			Page: 1
+		}, function (data) {
+			
+
+			var picturesCount = data["count"];//the count of pictures;
+			
+			var countOfPhotos = parseInt($("#countOfPhotos").val());
+			var pageCount = parseInt((picturesCount - 1) / countOfPhotos) + 1;
+
+			var liChildren = $("#pagination").children();
+			//删除第二个到倒数第二个孩子
+			for (var i = 1; i < liChildren.length - 1; i++) {
+				$(liChildren[i]).remove();
+
+			}
+
+			//add <li class="page-item"><a class="page-link">1</a></li>
+
+			if (pageCount != 0) {
+				for (var i = 0; i < pageCount; i++) {
+					var len = $("#pagination").children().length;
+					var item = "<li class=\"page-item\"><a class=\"page-link\">" + (i + 1) + "</a></li>";
+					$("#pagination").children().eq(len - 1).before(item);
+
+				}
+				$("#pagination").children().eq(1).addClass("active");
+			}
+			$("#pagination li").click(function () {
+				var activeIndex = parseInt($("#pageCount").val());
+				var index = $(this).index();
+				if (index == activeIndex) {
+					return;
+				}
+
+
+				var length = $(this).parent().children().length;
+				if (index == 0)//previous
+				{
+
+					if (activeIndex == 1)//第一页
+					{
+						return;
+					}
+					$(this).parent().children().eq(activeIndex).removeClass('active');
+					var nextIndex = activeIndex - 1;
+					$(this).parent().children().eq(nextIndex).addClass('active');
+					$("#pageCount").val(nextIndex);
+					GetPictures(nextIndex);
+					return;
+
+				}
+				if (index == length - 1) {
+					if (activeIndex == length - 2) {
+						return;
+					}
+					$(this).parent().children().eq(activeIndex).removeClass('active');
+					var nextIndex = activeIndex + 1;
+					$(this).parent().children().eq(nextIndex).addClass('active');
+					$("#pageCount").val(nextIndex);
+					GetPictures(nextIndex);
+					return;
+				}
+				$(this).parent().children().eq(activeIndex).removeClass('active');
+				$(this).parent().children().eq(index).addClass('active');
+				var nextIndex = index;
+				$("#pageCount").val(nextIndex);
+				GetPictures(nextIndex);
+				return;
+
+
+			}
+			)
+		}
+
+		)
+
+
+
+
+
+	}
+	)
+	function GetPictures(page) {
+		path = $("#Path").val();
+		$.post("/User/ShowAlbum", {
+			Path: path,
+			Page: page
+		},
+
+
+
+			function (data) {
+
+				/*
+				 * <div class="col-md-6 col-3">
+				 *   <a href=/User/ShowAlbumWithCarousel?page=>
+				 *     <img
+					 </a>
+				 * </div>
+				 *
+				 *
+				 *
+				 */
+
+
+				//test
+
+				//test
+
+				//test
+
+
+				$("#pictures").empty();
+				$.each(data['pictures'], function (index, picture) {
+					var albumPath = $("#Path").val();
+					var imgLabel = "<img class=\"animated fadeInDown picture img-fluid\"  src=\"" + albumPath + "/" + picture + "\" />"
+					var deleteButton = "<form method=\"post\" action=\"DeletePhoto\"><input type=\"hidden\" value=\"" + albumPath + "\" name=\"albumPath\" />" + "<input type=\"hidden\" value=\"" + picture + "\" name=\"pictureName\" />" + "<button type=\"button\" class=\"btn btn-primary\" name=\"showDialogButton\">delete</button>" + "</form>";
+					var path = $("#Path").val();
+					var page = $("#pageCount").val();
+					var index = index;
+					var href = "/User/ShowAlbumWithCarousel?path=" + path + "&page=" + page + "&index=" + index;
+
+					var aLabel = document.createElement
+
+					var divLabel = document.createElement("div");
+					$(divLabel).addClass("col-md-3");
+					$(divLabel).addClass("col-6");
+
+
+
+					var divLabel = "<div class=\"col-md-3 col-6 imgDiv\" >" + "<a target=\"_blank\"  href=\"" + href + "\" \>" + imgLabel + "</a>" + "<footer>" + deleteButton + "</footer>" + "</div>"
+
+					//$("#pictures").append(imgLabel);
+					//$("#pictures").append(deleteButton);
+					$("#pictures").append(divLabel);
+
+					var buttonLabel = "<button type=/>"
+
+
+					var radioLabel = "<input name=\"frontPhotoRadio\" type=\"radio\" />";
+
+					/*
+					 * <div class="col-md-10">
+					 *		<img />
+					 * </div>
+					 * <div class="col-md-2">
+					 *    <input type="radio" />
+					 * </div>
+					 *
+					 */
+					var label = "<div class=\"col-md-10\">" + imgLabel + "</div>" + "<div class=\"col-md-2\">" + radioLabel + "</div>"; $("#picturesToBeChosen").add("")
+					$("#photosToBeChosen").append(label);
+
+
+
+				});
+				//add delay for different pictures.
+				var pictures = $("#pictures img");
+				$.each(pictures, function (index, picture) {
+					picture.style["animation-delay"] = (index * 0.1) + "s";
+
+				}
+
+
+				)
+
+				//test
+				var pictures = $("#pictures").children();
+				if (pictures.length == 0) {
+
+
+					for (var i = 0; i < 3; i++) {
+
+						$("#pictures").append("<br />");
+
+
+					}
+
+
+
+				}
+
+				//给上面添加的button添加属性(字符串拼接太麻烦了,且容易出错)
+				//data-toggle="modal" data-target="#exampleModal" id="showDialogButton"
+				$("#pictures [name=showDialogButton]").attr("data-toggle", "modal");
+				$("#pictures [name=showDialogButton]").attr("data-target", "#exampleModal");
+				$("#pictures [name=showDialogButton]").attr("id", "showDialogButton");
+
+			}
+		)
+
+	}
+</script>
+<script>
+	$('#exampleModal').on('show.bs.modal', function (e) {
+		// do something...
+		var target = e.relatedTarget;
+		var photoName = $(target).parent().children().eq(1)[0].name;
+		var content = "Are you sure you want to delete this photo";//如果以后图片增加名字字段,这里才有意义
+
+		$("#exampleModal .modal-body").text(content)
+	})
+</script>
+<script>
+	$('#exampleModal').on('shown.bs.modal', function (e) {
+		// do something...
+		$("#deleteAlbumButton").click(
+			function () {
+				
+				var target = e.relatedTarget;
+				var form = $(target).parent();
+				form.submit();
+
+
+
+			}
+
+		)
+
+
+	})
+
+</script>
+
+
+<script>
+	$("#changeFrontPhotoButton").click(
+		function () {
+			var frontPicturePath = "";
+			var index = -1;
+			var radioList = $("#photosToBeChosen [name='frontPhotoRadio']");
+			for (var i = 0; i < radioList.length; i++) {
+
+				if (radioList[i].checked == true) {
+					index = i;
+					break;
+				}
+
+			}
+
+			if (index != -1) {
+				frontPicturePath = $("#photosToBeChosen .picture")[index].src;
+
+			}
+
+			$.post('/User/ChangeFrontPhoto', {
+				path: $("#Path").val(),
+				frontPicturePath: frontPicturePath
+			});
+			$("#exampleModalScrollable").modal('toggle');
+		}
+
+
+
+	);
+
+
+
+
+
+</script>
+
+<script>
+	$(function () {
+		// 0.初始化fileinput
+
+		var FileInput = function () {
+			var oFile = {}
+
+			// 初始化fileinput控件（第一次初始化）
+			oFile.Init = function (ctrlName, uploadUrl) {
+				var control = $('#' + ctrlName)
+
+				// 初始化上传控件的样式
+				control.fileinput({
+					language: 'zh', // 设置语言
+					uploadUrl: uploadUrl, // 上传的地址
+					allowedFileExtensions: ['jpg', 'gif', 'png'], // 接收的文件后缀
+					showUpload: true, // 是否显示上传按钮
+					showCaption: false, // 是否显示标题
+					browseClass: 'btn btn-primary', // 按钮样式     
+					// dropZoneEnabled: false,//是否显示拖拽区域
+					// minImageWidth: 50, //图片的最小宽度
+					// minImageHeight: 50,//图片的最小高度
+					// maxImageWidth: 1000,//图片的最大宽度
+					// maxImageHeight: 1000,//图片的最大高度
+					// maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
+					// minFileCount: 0,
+					maxFileCount: 10, // 表示允许同时上传的最大文件个数
+					enctype: 'multipart/form-data',
+					validateInitialCount: true,
+					previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+					msgFilesTooMany: '选择上传的文件数量({n}) 超过允许的最大数值{m}！'
+				})
+
+				// 导入文件上传完成之后的事件
+				$('#txt_file').on('fileuploaded', function (event, data) {
+					$('#myModal').modal('hide')
+					//var data = data.response.lstOrderImport
+					//if (data == undefined) {
+					//	toastr.error('文件格式类型不正确')
+					//	return
+					//}
+					// 1.初始化表格
+					if (data.response["status"] == "success") {
+
+						//do something
+					}
+				})
+
+				//this doesn't work,I don't why.
+				$('#txt_file').on('filebatchuploadsuccess', function (event, data) {
+
+					alert("all files have been uploaded successfully~");
+					location.reload();
+
+				})
+				//this can work,but maybe "complete" doesn't mean success,right?
+				$('#txt_file').on('filebatchuploadcomplete', function (event, data) {
+
+					alert("all files have been uploaded successfully~");
+					location.reload();
+
+				})
+				
+			}
+			return oFile
+		}
+		var oFileInput = new FileInput()
+		var url = '/User/AddPhoto?path=' + $("[name=path]").val();
+		oFileInput.Init('txt_file', url)
+	})
+
+
+</script>
+
+@* 定义a和href *@
+<script>
+	$("#showCircledAlbumButton").click(function () {
+		var href = "/User/ShowAlbumWithCircle?Path=@Model.Path&page="+ +$("#pageCount").val();
+	$("#showCircledAlbumButton")[0].href = href;
+	})
+	
+</script>

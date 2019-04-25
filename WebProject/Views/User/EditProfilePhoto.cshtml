@@ -1,0 +1,81 @@
+﻿@model ApplicationUser
+@{
+	ViewData["Title"] = "EditProfilePhoto";
+}
+
+
+<style>
+	#userProfilePhoto {
+		max-height:100%;
+		
+	}
+	#profilePhotoDiv {
+		margin-top:10px;
+	}
+</style>
+
+<h1>EditProfilePhoto</h1>
+<form method="post"  enctype="multipart/form-data">
+	
+	<div class="row">
+		<div class="col-9">
+			<input type="file" accept="image/*" id="ChoosePhoto" name="Photos" class="form-control" />
+		</div>
+		<div class="col-3">
+			<input type="submit" value="submit" class="btn btn-primary" id="uploadProfilePhotoButton" />
+		</div>
+	</div>
+	
+</form>
+
+<div id="profilePhotoDiv"style="width:100px; height:100px;border:1px solid blue; border-radius:5px;">
+	
+	@{
+		var photoPath = "/images/default.jpg";
+		if (!string.IsNullOrEmpty(Model.ProfilePhotoPath))
+		{
+			photoPath = Model.ProfilePhotoPath;
+		}
+	}
+	<img src="@photoPath" class="img-thumbnail" id="userProfilePhoto" />
+</div>
+
+<script>
+	//$("#ChoosePhoto").fileinput({})
+</script>
+
+<script>
+
+
+	$(function () {
+		$("#ChoosePhoto").change(function (e) {
+
+			
+
+			var _URL = window.URL || window.webkitURL;
+			var file, img;
+			if ((file = this.files[0])) {
+				img = new Image();
+				img.onload = function () {
+					$('#userProfilePhoto').attr('src', this.src);
+				};
+				img.src = _URL.createObjectURL(file);
+			}
+		});
+
+	})
+	$("#uploadProfilePhotoButton").click(function (event) {
+
+
+		if ($("#ChoosePhoto").val() == "") {
+			alert("you have to choose one picture before you upload");
+			event.preventDefault();
+		}
+
+
+
+	}
+		
+		)
+
+</script>

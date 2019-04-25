@@ -1,0 +1,163 @@
+﻿@model ApplicationUser 
+@{
+	ViewData["Title"] = "Profile";
+	
+}
+
+<h1>Profile</h1>
+
+<div class="container">
+	<form method="post">
+		<div class="form-group row">
+			<label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" asp-for="UserName" placeholder="Name">
+			</div>
+		</div>
+
+		<fieldset class="form-group">
+			<div class="row">
+				<legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+				<div class="col-sm-10">
+					<div class="form-check">
+						<input class="form-check-input genderCheck" type="radio" name="gridRadios" id="gridRadios1"
+							   value="option1">
+						<label class="form-check-label" for="gridRadios1">
+							Boy
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input genderCheck" type="radio" name="gridRadios" id="gridRadios2"
+							   value="option2">
+						<label class="form-check-label" for="gridRadios2">
+							Girl
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input genderCheck" type="radio" name="gridRadios" id="gridRadios3"
+							   value="option3">
+						<label class="form-check-label" for="gridRadios3">
+							Unset
+						</label>
+					</div>
+
+
+				</div>
+
+			</div>
+		</fieldset>
+		<div class="form-group row">
+			<div class="col-sm-2">Receive Email?(For Resetting Password)</div>
+			<div class="col-sm-10">
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="gridCheck1" asp-for="EmailConfirmed">
+					<label class="form-check-label" for="gridCheck1">
+						Yes
+					</label>
+				
+				</div>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-sm-2">
+				Birth Date
+			</div>
+			<div class="col-sm-10">
+				<div class="input-group date">
+					<input type="text" class="form-control" asp-for="BirthDate">
+					<button type="button" class="btn btn-primary">choose date</button>
+
+				</div>
+
+			</div>
+
+
+
+		</div>
+		<input type="hidden" name="gender" id="gender" value=@Model.Gender />
+		<input type="hidden" name="Id" value=@Model.Id />
+		<div class="form-group row">
+			<div class="col-sm-10">
+				<button type="submit" class="btn btn-primary">Save Changes</button>
+			</div>
+		</div>
+
+	</form>
+
+
+</div>
+
+<script>
+	
+	$('.input-group.date').datepicker({
+		//language: 'zh-CN',
+		//format: 'dd/mm/yyyy',//yyyy-mm-dd hh:ii p   div的显示时间
+		//todayBtn: true,//今天按钮
+		//autoclose: true,//选中关闭
+		minView: "month",//设置选择时 只显示到月份 ----day， year --不设置默认带时间 秒   日历的显示时间
+		//startView: "2"
+		  
+
+	}
+
+
+	)
+	
+	var birthDate = $("#BirthDate").val();
+	
+	var index = birthDate.indexOf(' ');
+	
+	if (index != -1) {
+
+
+		var subString = birthDate.substring(0, index);
+	}
+	else {
+
+		subString = birthDate;//js没有块级作用域
+	}
+	$("#BirthDate").val(subString);
+</script>
+<script>
+	var gender = $("#gender").val();
+	if (gender == "Boy") {
+		$(".genderCheck")[0].checked = true
+
+
+
+	}
+	else if (gender == "Girl") {
+		$(".genderCheck")[1].checked = true
+	}
+	else {
+		$(".genderCheck")[2].checked = true;
+	}
+
+</script>
+<script>
+
+
+	$(".genderCheck").change(function (e) {
+		var index = -1;
+		for (var i = 0; i < $(".genderCheck").length; i++) {
+			var radio = $(".genderCheck")[i];
+			if (radio.checked == true) {
+				index = i;
+				break;
+			}
+
+		}
+		if (index == 0) {
+
+			$("#gender").val("Boy");
+		}
+		else if (index == 1) {
+			$("#gender").val("Girl");
+		}
+		else 
+		{
+				$("#gender").val(null);
+		}
+	})
+
+</script>

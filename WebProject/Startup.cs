@@ -13,6 +13,9 @@ using Microsoft.EntityFrameworkCore;
 using WebProject.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WebProject.Models;
+using WebProject.Email;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace WebProject
 {
@@ -35,10 +38,31 @@ namespace WebProject
 				options.MinimumSameSitePolicy = SameSiteMode.None;
 			});
 
-			services.AddDbContext<ApplicationDbContext>(options =>
-				options.UseSqlServer(
-					Configuration.GetConnectionString("DefaultConnection")));
-			services.AddDefaultIdentity<IdentityUser>()
+			var DatabaseName = Configuration.GetConnectionString("WhichDatabase");
+			if (DatabaseName == "MySql")
+			{
+				services.AddDbContext<ApplicationDbContext>(options =>
+					options.UseMySql(
+						Configuration.GetConnectionString("MySqlConnection")));
+			}
+			else if (DatabaseName == "SqlServer")
+			{
+				services.AddDbContext<ApplicationDbContext>(options =>
+					options.UseSqlServer(
+						Configuration.GetConnectionString("SqlServerConnection")));
+			}
+			else
+			{
+				throw new Exception("请确认数据库配置");
+			}
+			// Add email services.
+			services.AddTransient<IEmailSender, EmailSender>();
+
+
+			//services.AddDbContext<ApplicationDbContext>(options =>
+			//	options.UseSqlServer(
+			//		Configuration.GetConnectionString("DefaultConnection")));
+			services.AddDefaultIdentity<ApplicationUser>()
 				.AddDefaultUI(UIFramework.Bootstrap4)
 				.AddEntityFrameworkStores<ApplicationDbContext>();
 

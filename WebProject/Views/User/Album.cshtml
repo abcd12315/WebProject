@@ -1,0 +1,162 @@
+﻿@model IQueryable<UserAlbum>
+@{
+	ViewData["Title"] = "Album";
+}
+
+<h1>Album</h1>
+
+<a role="button" class="btn btn-primary" href="/User/AddAlbum?returnUrl=/User/Album">Add new</a>
+
+@*
+	show the albums
+*@
+
+<style>
+	.albumFront {
+		max-width:100%;
+		max-height:300px;
+		
+	}
+	.myRow {
+		margin-top:50px;
+	}
+
+	.albumDiv div {
+		margin-bottom:10px;
+	}
+</style>
+<div row>
+
+
+	<ul>
+		@{
+			foreach (var album in Model)
+			{
+				var frontPicturePath = album.FrontPicturePath;
+				if (string.IsNullOrEmpty(frontPicturePath))
+				{
+					frontPicturePath = "/images/default.jpg";
+				}
+				<li>
+					<div class="col-sm-12">
+						<div class="row myRow">
+							<div class="col-8">
+								<a href=/User/ShowAlbum?albumId=@album.Id&returnUrl=/User/Album>
+									<img src=@frontPicturePath class="img-thumbnail albumFront" />
+								</a>
+							</div>
+
+							<div class="col-4">
+								<label for="albumName">
+									the name of album:
+								</label>
+								
+								<div class="row albumDiv">
+									<div class="col-sm-12">
+										<form method="post" action="/User/ModifyAlbumName">
+											<input class="form-control" name="AlbumName" value="@album.Name" />
+											<input type="hidden" name="Id" value=@album.Id />
+											@*<input type="submit" value="delete" class="btn btn-primary" />*@
+											
+											<button type="submit" class="btn btn-primary">
+												Modify
+											</button>
+
+										</form>
+									</div>
+									<div class="col-sm-12">
+										<form method="post" action="/User/DeleteAlbum">
+											<input type="hidden" name="Id" value=@album.Id />
+											@*<input type="submit" value="delete" class="btn btn-primary" />*@
+											<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="showDialogButton">
+												delete
+											</button>
+
+										</form>
+									</div>
+								</div>
+
+		
+				
+							</div>
+
+						</div>
+	
+						
+					</div>
+
+
+				</li>
+
+
+
+			}
+		}
+	</ul>
+
+
+
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" id="deleteAlbumButton">Yes</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+@* 初始化对话框内容(即说明删除哪个log) *@
+<script>
+	$('#exampleModal').on('show.bs.modal', function (e) {
+		var target = e.relatedTarget;
+		
+		var albumName = $(target).parent().parent().children().eq(0).children().eq(1).val();
+		var content = "are you sure you want to delete the album named \"" + albumName + "\"?";
+
+		$("#exampleModal .modal-body").text(content);
+
+
+	})
+
+</script>
+
+@* 点击确定后,post *@
+<script>
+
+
+	$('#exampleModal').on('shown.bs.modal', function (e) {
+		// do something...
+		$("#deleteAlbumButton").click(
+			function () {
+				var target = e.relatedTarget;
+				var form = $(target).parent();
+				form.submit();
+				
+
+
+			}
+
+		)
+
+
+	})
+
+
+</script>
+

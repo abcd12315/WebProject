@@ -1,0 +1,40 @@
+﻿<style>
+	.mynav > li {
+		display: block;
+		border-radius:5px;
+		color:lightblue;
+		padding:10px;
+		background-color:lightblue;
+		margin-top:10px;
+		
+	}
+
+
+</style>
+
+<ul class="mynav" id="myNav">
+    <li><a href="/User/Profile">Profile</a></li>
+    <li><a href="/User/Album">Album</a></li>
+	<li><a href="/User/EditProfilePhoto">profile photo</a></li>
+	<li><a href="/User/Log">Log</a></li>
+</ul>
+<input type="hidden" id="action" value="@ViewContext.RouteData.Values["Action"]"/>
+
+<script>
+	var action = $("#action").val();
+	if (action == "Profile") {
+		$("#myNav li")[0].style["background-color"] = "lightcoral";
+
+	}
+	else if (action == "Album") {
+		$("#myNav li")[1].style["background-color"] = "lightcoral";
+	}
+	else if (action == "EditProfilePhoto") {
+		$("#myNav li")[2].style["background-color"] = "lightcoral";
+	}
+	else if(action=="Log"){
+		$("#myNav li")[3].style["background-color"] = "lightcoral";
+
+	}
+	
+</script>

@@ -1,0 +1,158 @@
+﻿@model IQueryable<UserLog>
+@{
+	ViewData["Title"] = "Log";
+}
+
+<style>
+</style>
+
+
+<h1>Log</h1>
+<div id="myLogTable">
+	<table class="table table-striped table-dark">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Title</th>
+				<th scope="col">RegistrationTime</th>
+				<th scope="col">Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			@*<tr>
+					<th scope="row">1</th>
+					<td><button type="button" class="btn btn-secondary title">Title1</button></td>
+					<td><button type="button" class="btn btn-secondary deleteButton">Delete</button></td>
+					<td hidden>LogId1</td>
+
+				</tr>
+				<tr>
+					<th scope="row">2</th>
+					<td><button type="button" class="btn btn-secondary title">Title2</button></td>
+
+					<td>
+						<form method="post" action="/User/DeleteLog" name="deleteForm">
+							<button type="button" class="btn btn-secondary deleteButton">Delete</button>
+						</form>
+					</td>
+					<td hidden>LogId2</td>
+				</tr>
+				<tr>
+					<th scope="row">3</th>
+					<td><button type="button" class="btn btn-secondary title">Title3</button></td>
+					<td><button type="button" class="btn btn-secondary deleteButton">Delete</button></td>
+					<td hidden></td>
+
+				</tr>*@
+			@{
+				var k = 0;
+				foreach (var log in Model)
+				{
+					k++;
+					<tr>
+						<th scope="row">@k</th>
+						<td>
+							<a href=/User/EditLog?LogId=@log.Id&returnUrl=/user/log class="btn btn-primary active" role="button" aria-pressed="true">@log.Title</a>
+						</td>
+						<td>
+							
+							@{
+								var timeString = log.RegistrationTime.ToString();
+								var spaceIndex = timeString.IndexOf(' ');
+								timeString = timeString.Substring(0, spaceIndex);
+						}
+
+							
+
+							@timeString
+						</td>
+						<td>
+							<form method="post" action="/User/DeleteLog" name="deleteForm">
+								<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">Delete</button>
+								<input type="hidden" id="logId" name="Id" value=@log.Id />
+
+							</form>
+						</td>
+						<td hidden>@log.Id</td>
+
+					</tr>
+				}
+
+			}
+
+		</tbody>
+	</table>
+	<footer>
+		<a href="/User/AddLog?returnUrl=/User/Log" class="btn btn-primary">add new</a>
+	</footer>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Delete Log</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" id="inSureDelete">Yes</button>
+			</div>
+		</div>
+	</div>
+	
+	<input class="tempForm" type="hidden" />
+</div>
+
+
+
+
+<script>
+	$("#myLogTable .deleteButton").click(
+		function () {
+			var logName = $(this).parent().parent().parent().children().eq(1).children().eq(0).text()
+
+			var result = confirm("are you sure you want to submit named " + logName + "?");
+			if (result) {
+				//submit
+				var logId = $(this).parent().parent().parent().children().eq(3).text();
+				$(this).parent().children().eq(1).attr("value", logId);
+				$(this).parent().submit();
+
+			}
+
+
+		}
+
+	)
+	$('#exampleModal').on('show.bs.modal', function (e) {
+		// do something... Edit the content
+		var logName = $(e.relatedTarget).parent().parent().parent().children().eq(1).children().eq(0).text();
+		var str = "are you sure you want to delete the log named \"" + logName+"\"?";
+		$("#exampleModal .modal-body").text(str);
+		var tempForm = $(e.relatedTarget).parent();
+	
+		$("#exampleModal .tempForm").data(tempForm);
+	})
+
+
+	$("#inSureDelete").click(function () {
+		$("#exampleModal").modal('hide');
+		var form = $("#exampleModal .tempForm").data();
+
+		form[0].submit();
+	
+
+	})
+
+</script>
+<scirpt>
+
+</scirpt>

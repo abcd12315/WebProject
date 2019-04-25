@@ -1,8 +1,58 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home Page";
 }
 
+@*<div class="text-center">
+		<h1 class="display-4">Welcome</h1>
+		<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+	</div>*@
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+	<h1 class="display-4">Welcome</h1>
 </div>
+
+<meta charset="UTF-8">
+<title>@ViewData["Title"]</title>
+<link href="~/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+<div class="trade-content">
+	<div class="trade-title">
+		<p>You can do the follow things</p>
+	</div>
+	<div class="trade-black">
+		<div class="trade-box">
+			<div class="trade-box-list">
+				<div class="trade-box-item item01">
+					<a href="/User/Album">
+						<div class="item-logo">
+							@*<img src="" alt="">*@
+						</div>
+						<div class="item-title">Manage Your Album</div>
+						<div class="item-text">
+							<p>Get Started Now!</p>
+						
+						</div>
+					</a>
+				</div>
+				<div class="trade-box-item item02">
+					<a href="/User/Log">
+						<div class="item-logo">
+							@*<img src="~/images/timg (1).jpg" alt="">*@
+						</div>
+						<div class="item-title">Write A Diary</div>
+						<div class="item-text">
+							<p>Get Started Now!</p>
+				
+						</div>
+					</a>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+

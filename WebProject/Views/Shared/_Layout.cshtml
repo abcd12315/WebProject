@@ -1,78 +1,159 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebProject</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - Cookie's Personal Space</title>
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
-              crossorigin="anonymous"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
-    </environment>
-    <link rel="stylesheet" href="~/css/site.css" />
+	<environment include="Development">
+		<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+	</environment>
+	<environment exclude="Development">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+			  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+			  crossorigin="anonymous"
+			  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+	</environment>
+	<link rel="stylesheet" href="~/css/site.css" />
+
+	<environment include="Development">
+		<script src="~/lib/jquery/dist/jquery.js"></script>
+		<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+	</environment>
+	<environment exclude="Development">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+				asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+				asp-fallback-test="window.jQuery"
+				crossorigin="anonymous"
+				integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+		</script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+				asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+				asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+				crossorigin="anonymous"
+				integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+		</script>
+	</environment>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+
+	<link rel="stylesheet" href="/css/bootstrap-datepicker.css">
+
+	<script src="/js/bootstrap-datepicker.js"></script>
+
+	<script src="/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+	<script src="~/js/fileinput.js"></script>
+
+	@*icons *@
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+		  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="~/css/animate.css" />
+	<link rel="stylesheet" href="~/css/fileinput.css" />
+	<link rel="stylesheet" href="~/css/icon.css" />
+	<style>
+		body {
+			/*background-image:url("/images/timg (1).jpg");
+			background-repeat:no-repeat;
+			background-size:100% 100%;
+			background-attachment:fixed*/
+
+		}
+		.myFooter {
+			position:fixed
+		}
+	</style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebProject</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+	<header>
+		<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-secondary border-bottom box-shadow mb-3 ">
+			<div class="container">
+				<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cookie's Personal Space</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+					<partial name="_LoginPartial" />
+					<ul class="navbar-nav flex-grow-1">
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div class="container">
+		<partial name="_CookieConsentPartial" />
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2019 - WebProject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+	<footer class="border-top footer text-muted myFooter">
+		<div class="container-fluid">
+			<audio  controls src="~/mp3/Taylor Swift - You Belong With Me.mp3"></audio>
+			<a  data-toggle="popover" id="checkMusic" href="#" style="position:absolute;top:0;font-size:20px" ><i class="glyphicon glyphicon-th-list"></i></a>
 
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
-        </script>
-    </environment>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+			&copy; 2019 - Cookie's Personal Space - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+		</div>
 
-    @RenderSection("Scripts", required: false)
+	</footer>
+	<div class="list-group" hidden>
+
+		<button type="button" class="list-group-item list-group-item-action">Taylor Swift - Sparks Fly (Live).mp3</button>
+		<button type="button" class="list-group-item list-group-item-action">Taylor Swift - You Belong With Me.mp3</button>
+
+	</div>
+
+	<script>
+		var content_body = '<div class="list-group">\
+			<button type="button" class="list-group-item list-group-item-action">Taylor Swift - Sparks Fly (Live).mp3</button>\
+			<button type="button" class="list-group-item list-group-item-action">Taylor Swift - You Belong With Me.mp3</button>\
+		</div>'
+
+		$("#checkMusic").popover({
+			placement: "top",
+			trigger: "manual",
+			html: true,
+			title: '<div class="text-center">choose one song<div>',
+			content: '<div id="musicList" class="list-group">\
+			<a class="list-group-item list-group-item-action">Taylor Swift - Sparks Fly (Live).mp3</a>\
+			<a class="list-group-item list-group-item-action">Taylor Swift - You Belong With Me.mp3</a>\
+			<a class="list-group-item list-group-item-action">泠鸢yousa - 勾指起誓.mp3</a>\
+		</div>'
+
+		})
+		$("#checkMusic").click(function (event) {
+			event.preventDefault();
+			$("#checkMusic").popover('toggle');
+		})
+		$('#checkMusic').on('shown.bs.popover', function () {
+			// do something...
+
+			$("#musicList a").click(function (event) {
+				var song = $(this).text();
+				var songPath = "/mp3/" + song;
+				$("audio")[0].src = songPath;
+				$("audio")[0].load();
+				$("audio")[0].play();
+				$("#checkMusic").popover('hide')
+	
+			}
+			)
+		})
+
+	</script>
+
+	@RenderSection("Scripts", required: false)
+
+
 </body>
 </html>
