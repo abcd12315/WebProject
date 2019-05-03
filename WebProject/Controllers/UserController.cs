@@ -88,24 +88,27 @@ namespace WebProject.Controllers {
 		[HttpPost]
 		public async Task<IActionResult> DeleteLog (DeleteLogModel model) {
 			//只有当这个Log存在,并且属于当前用户时才能删除
-			if (ModelState.IsValid) {
-				var user = await _userManager.GetUserAsync (User);
-				if (user == null) {
-					throw new Exception ("error"); //能到这里,user不可能不存在吧?
+			if (ModelState.IsValid) {//form表单传递过来的数据能被正确理解
+				var user = await _userManager.GetUserAsync (User);//获取当前用户信息
+				if (user == null) {//用户为空
+					throw new Exception ("authentication error"); //抛出异常
 				}
+				//查询当前请求删除的log是否存在,并且是否属于当前用户。
 				var query = _context.Logs.Where (q => q.Id == model.Id && q.BelongerId == user.Id);
-				if (query.Any ()) {
-					var log = query.First ();
-					_context.Remove (log);
-					_context.SaveChanges ();
-					return RedirectToAction ("Log");
+
+				
+				if (query.Any ()) {//存在这样的log
+					var log = query.First ();//得到这个log,由于是用主键查询的,结果只能唯一
+					_context.Logs.Remove (log);//从数据库上下文里删除该Log
+					_context.SaveChanges ();//更新数据库,配合上面一句代码才有用。
+					return RedirectToAction ("Log");//重定向Url到/User/Log,等于让用户重新发送一个http get 请求刷新页面
 
 				}
 
-				throw new Exception ("unable to find such log needed to be deleted ");
+				throw new Exception ("unable to find such log needed to be deleted ");//这个Log已经被删除
 
 			}
-			throw new Exception ("error");
+			throw new Exception ("error");//form表单数据无法被正确识别。
 
 		}
 

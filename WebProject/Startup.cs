@@ -97,5 +97,6 @@ namespace WebProject
 					template: "{controller=Home}/{action=Index}/{id?}");
 			});
 		}
+
 	}
 }

@@ -129,5 +129,11 @@ namespace WebProject.Controllers
 
 			return "finished";
 		}
+		//this is test action designed for linux
+		[HttpGet]
+		public string GetEnvironment()
+		{
+			return Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+		}
 	}
 }
