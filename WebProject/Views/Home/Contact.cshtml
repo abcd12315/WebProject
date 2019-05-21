@@ -47,7 +47,8 @@
 				<label for="content" class="col-sm-12 col-form-label text-center"><h4>content</h1></label>
 				<textarea name="content" id="content" rows="10" class="col-sm-12 form-control"></textarea>
 			</div>
-			<button class="btn btn-primary float-right">submit</button>
+
+			<button id="submit" class="btn btn-danger	 float-right" disabled>submit</button>
 
 		</form>
 
@@ -63,10 +64,13 @@
 			var email ="@user.Email";
 			var name="@user.UserName";
 			$("#email").val(email);
-			$("#email").attr("readonly",true)
+			$("#email").attr("readonly", true);
 
 			$("#name").val(name);
-			$("#name").attr("readonly", true)
+			$("#name").attr("readonly", true);
+			$("#submit").attr("disabled", false);
+			$("#submit").removeClass("btn-danger");
+			$("#submit").addClass("btn-primary");
 		</script>
 	}
 

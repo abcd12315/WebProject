@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using NLog;
 using WebProject.Data;
 using WebProject.Models;
 
@@ -17,17 +20,23 @@ namespace WebProject.Controllers
 		private readonly ApplicationDbContext _context;
 		private readonly UserManager<ApplicationUser> _userManager;
 		private readonly IEmailSender _emailSender;
+		private readonly ILogger<HomeController> _logger;
+		private readonly Logger logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
 		public HomeController(ApplicationDbContext context, UserManager<ApplicationUser> userManager,
 							IEmailSender emailSender
-			
 			)
 		{
 			_context = context;
 			_userManager = userManager;
 			_emailSender = emailSender;
+
+			
+
 		}
+		
 		public IActionResult Index()
 		{
+			logger.Info($"from {HttpContext.Connection.RemoteIpAddress}:{HttpContext.Connection.RemotePort}");
 			return View();
 		}
 

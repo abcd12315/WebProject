@@ -16,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using WebProject.Models;
 using WebProject.Email;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.Extensions.Logging;
 
 namespace WebProject
 {
@@ -66,11 +67,13 @@ namespace WebProject
 				.AddDefaultUI(UIFramework.Bootstrap4)
 				.AddEntityFrameworkStores<ApplicationDbContext>();
 
+			
+
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+		public void Configure(IApplicationBuilder app, IHostingEnvironment env,ILoggerFactory loggerFactory)
 		{
 			if (env.IsDevelopment())
 			{
@@ -83,6 +86,8 @@ namespace WebProject
 				// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
 				app.UseHsts();
 			}
+
+			
 
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();

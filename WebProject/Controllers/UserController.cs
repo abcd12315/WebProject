@@ -20,6 +20,7 @@ namespace WebProject.Controllers {
 		private readonly UserManager<ApplicationUser> _userManager;
 		private readonly IHostingEnvironment _hostingEnvironment;
 		private readonly IConfiguration _configuration;
+		NLog.Logger logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
 		public UserController (ApplicationDbContext context, 
 			UserManager<ApplicationUser> userManager,
 			IConfiguration configuration,
@@ -484,24 +485,26 @@ namespace WebProject.Controllers {
 		[HttpPost]
 		public async Task<IActionResult> Profile(ApplicationUser user, bool EmailConfirmed)
 		{
-			if (ModelState.IsValid)
-			{
-				var user2 = await _userManager.GetUserAsync(User);
-				if (user2.Id == user.Id)
+
+				if (ModelState.IsValid)
 				{
-					var query = _context.Users.Where(q => q.Id == user.Id);
-					var userInDb=query.First();
-					userInDb.UserName = user.UserName;
-					userInDb.Gender = user.Gender;
-					userInDb.BirthDate = user.BirthDate;
-					userInDb.EmailConfirmed = user.EmailConfirmed;
-					_context.SaveChanges();
-					return View(user);
+					var user2 = await _userManager.GetUserAsync(User);
+					if (user2.Id == user.Id)
+					{
+						var query = _context.Users.Where(q => q.Id == user.Id);
+						var userInDb = query.First();
+						userInDb.UserName = user.UserName;
+						userInDb.Gender = user.Gender;
+						userInDb.BirthDate = user.BirthDate;
+						userInDb.EmailConfirmed = user.EmailConfirmed;
+						_context.SaveChanges();
+						return View(user);
+					}
+					throw new Exception("error");
+
 				}
 				throw new Exception("error");
-
-			}
-			throw new Exception("error");
+			
 
 			
 		}
