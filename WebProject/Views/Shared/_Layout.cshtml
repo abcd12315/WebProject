@@ -65,6 +65,11 @@
 		.myNavbar {
 			height:70px;
 		}
+		#userCount
+		{
+
+			float:right;
+		}
 	</style>
 </head>
 <body>
@@ -94,6 +99,7 @@
 		</nav>
 	</header>
 	<div class="container">
+		<div id="userCount"></div>
 		<partial name="_CookieConsentPartial" />
 		<main role="main" class="pb-3">
 			@RenderBody()
@@ -101,11 +107,13 @@
 	</div>
 
 	<footer class="border-top footer text-muted myFooter">
+		
 		<div class="container-fluid">
 			<audio  controls src="~/mp3/Taylor Swift - You Belong With Me.mp3"></audio>
 			<a  data-toggle="popover" id="checkMusic" href="#" style="position:absolute;top:0;font-size:20px" ><i class="glyphicon glyphicon-th-list"></i></a>
 
 			&copy; 2019 - Cookie's Personal Space - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+			
 		</div>
 
 	</footer>
@@ -159,4 +167,23 @@
 
 
 </body>
+<script>
+	circle();
+    function circle(){
+        $.post("/Home/GetUserCount", {"placeHolder":"Whatever"}, 
+        function (data) {
+          $("#userCount").text(data+" people have visited this site today");
+        }
+   );
+
+
+    }
+    setInterval(circle,5000);
+    
+
+    
+
+
+</script>
+
 </html>

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -16,20 +18,22 @@ namespace WebProject.Controllers
 {
 	public class HomeController : Controller
 	{
-
+		private static readonly string  DATA_DIR="data";
 		private readonly ApplicationDbContext _context;
 		private readonly UserManager<ApplicationUser> _userManager;
 		private readonly IEmailSender _emailSender;
 		private readonly ILogger<HomeController> _logger;
-		private readonly Logger logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
+        private readonly Logger logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
+        private readonly IHostingEnvironment _hostingEnvironment;
 		public HomeController(ApplicationDbContext context, UserManager<ApplicationUser> userManager,
-							IEmailSender emailSender
+							IEmailSender emailSender,
+                            IHostingEnvironment hostingEnvironment
 			)
 		{
 			_context = context;
 			_userManager = userManager;
 			_emailSender = emailSender;
-
+            _hostingEnvironment = hostingEnvironment;
 			
 
 		}
@@ -144,5 +148,27 @@ namespace WebProject.Controllers
 		{
 			return Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 		}
+
+		[HttpGet]
+		public IActionResult GetUserCount()
+		{
+
+
+			return View();
+		}
+
+
+        [HttpPost]
+        public string GetUserCount(string placeHolder)
+        {
+            //读取文件里的人数 count.txt
+            string RootPath = _hostingEnvironment.WebRootPath;
+            StreamReader reader = new StreamReader($"{RootPath}/{DATA_DIR}/count.txt");
+            string count = reader.ReadLine();
+            reader.Close();
+            return count;
+
+
+        }
 	}
 }

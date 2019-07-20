@@ -1,0 +1,503 @@
+2019-07-20 10:53:54.7066 Info Message Template Auto Format enabled
+2019-07-20 10:53:54.7066 Info Adding target FileTarget(Name=allfile)
+2019-07-20 10:53:54.7066 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 10:53:54.7066 Info Closing old configuration.
+2019-07-20 10:53:54.7066 Info Found 55 configuration items
+2019-07-20 10:53:56.8963 Info Configuring from an XML element in nlog.config...
+2019-07-20 10:53:56.8963 Info Message Template Auto Format enabled
+2019-07-20 10:53:56.8963 Info Adding target FileTarget(Name=allfile)
+2019-07-20 10:53:56.8963 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 10:53:56.8963 Info Closing old configuration.
+2019-07-20 10:53:56.9026 Info Found 55 configuration items
+2019-07-20 10:54:16.5509 Info Configuration file change detected! Reloading in 1000ms...
+2019-07-20 10:54:16.5509 Info Configuration file change detected! Reloading in 1000ms...
+2019-07-20 10:54:16.5509 Info Configuration file change detected! Reloading in 1000ms...
+2019-07-20 10:54:17.5535 Info Reloading configuration...
+2019-07-20 10:54:17.5535 Info Configuring from an XML element in nlog.config...
+2019-07-20 10:54:17.5535 Info Message Template Auto Format enabled
+2019-07-20 10:54:17.5535 Info Adding target FileTarget(Name=allfile)
+2019-07-20 10:54:17.5626 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 10:54:17.5626 Info Closing old configuration.
+2019-07-20 10:54:17.5626 Info Found 55 configuration items
+2019-07-20 10:54:18.5657 Info Configuring from an XML element in nlog.config...
+2019-07-20 10:54:18.5657 Info Message Template Auto Format enabled
+2019-07-20 10:54:18.5657 Info Adding target FileTarget(Name=allfile)
+2019-07-20 10:54:18.5657 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 10:54:18.5657 Info Closing old configuration.
+2019-07-20 10:54:18.5657 Info Found 55 configuration items
+2019-07-20 10:59:07.4221 Info Configuring from an XML element in nlog.config...
+2019-07-20 10:59:07.4221 Info Message Template Auto Format enabled
+2019-07-20 10:59:07.4221 Info Adding target FileTarget(Name=allfile)
+2019-07-20 10:59:07.4221 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 10:59:07.4221 Info Closing old configuration.
+2019-07-20 10:59:07.4221 Info Found 55 configuration items
+2019-07-20 10:59:25.0330 Info Configuring from an XML element in nlog.config...
+2019-07-20 10:59:25.0330 Info Message Template Auto Format enabled
+2019-07-20 10:59:25.0330 Info Adding target FileTarget(Name=allfile)
+2019-07-20 10:59:25.0330 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 10:59:25.0330 Info Closing old configuration.
+2019-07-20 10:59:25.0330 Info Found 55 configuration items
+2019-07-20 10:59:36.0800 Info Configuring from an XML element in nlog.config...
+2019-07-20 10:59:36.0800 Info Message Template Auto Format enabled
+2019-07-20 10:59:36.0800 Info Adding target FileTarget(Name=allfile)
+2019-07-20 10:59:36.0800 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 10:59:36.0800 Info Closing old configuration.
+2019-07-20 10:59:36.0800 Info Found 55 configuration items
+2019-07-20 10:59:46.4900 Info Configuring from an XML element in nlog.config...
+2019-07-20 10:59:46.4900 Info Message Template Auto Format enabled
+2019-07-20 10:59:46.4900 Info Adding target FileTarget(Name=allfile)
+2019-07-20 10:59:46.4900 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 10:59:46.4900 Info Closing old configuration.
+2019-07-20 10:59:46.4900 Info Found 55 configuration items
+2019-07-20 10:59:52.6548 Info Configuring from an XML element in nlog.config...
+2019-07-20 10:59:52.6548 Info Message Template Auto Format enabled
+2019-07-20 10:59:52.6548 Info Adding target FileTarget(Name=allfile)
+2019-07-20 10:59:52.6548 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 10:59:52.6548 Info Closing old configuration.
+2019-07-20 10:59:52.6548 Info Found 55 configuration items
+2019-07-20 11:00:12.5226 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:00:12.5226 Info Message Template Auto Format enabled
+2019-07-20 11:00:12.5226 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:00:12.5226 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:00:12.5226 Info Closing old configuration.
+2019-07-20 11:00:12.5288 Info Found 55 configuration items
+2019-07-20 11:00:16.7592 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:00:16.7592 Info Message Template Auto Format enabled
+2019-07-20 11:00:16.7592 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:00:16.7592 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:00:16.7592 Info Closing old configuration.
+2019-07-20 11:00:16.7592 Info Found 55 configuration items
+2019-07-20 11:01:05.6559 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:01:05.6559 Info Message Template Auto Format enabled
+2019-07-20 11:01:05.6559 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:01:05.6559 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:01:05.6559 Info Closing old configuration.
+2019-07-20 11:01:05.6559 Info Found 55 configuration items
+2019-07-20 11:01:12.8386 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:01:12.8386 Info Message Template Auto Format enabled
+2019-07-20 11:01:12.8386 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:01:12.8386 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:01:12.8386 Info Closing old configuration.
+2019-07-20 11:01:12.8386 Info Found 55 configuration items
+2019-07-20 11:02:03.1756 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:02:03.1756 Info Message Template Auto Format enabled
+2019-07-20 11:02:03.1756 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:02:03.1756 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:02:03.1756 Info Closing old configuration.
+2019-07-20 11:02:03.1756 Info Found 55 configuration items
+2019-07-20 11:02:42.4516 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:02:42.4516 Info Message Template Auto Format enabled
+2019-07-20 11:02:42.4516 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:02:42.4516 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:02:42.4516 Info Closing old configuration.
+2019-07-20 11:02:42.4516 Info Found 55 configuration items
+2019-07-20 11:02:48.6764 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:02:48.6764 Info Message Template Auto Format enabled
+2019-07-20 11:02:48.6764 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:02:48.6764 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:02:48.6764 Info Closing old configuration.
+2019-07-20 11:02:48.6764 Info Found 55 configuration items
+2019-07-20 11:03:39.0361 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:03:39.0361 Info Message Template Auto Format enabled
+2019-07-20 11:03:39.0361 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:03:39.0361 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:03:39.0361 Info Closing old configuration.
+2019-07-20 11:03:39.0361 Info Found 55 configuration items
+2019-07-20 11:03:45.6634 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:03:45.6634 Info Message Template Auto Format enabled
+2019-07-20 11:03:45.6634 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:03:45.6634 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:03:45.6634 Info Closing old configuration.
+2019-07-20 11:03:45.6634 Info Found 55 configuration items
+2019-07-20 11:03:52.4231 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:03:52.4231 Info Message Template Auto Format enabled
+2019-07-20 11:03:52.4231 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:03:52.4231 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:03:52.4231 Info Closing old configuration.
+2019-07-20 11:03:52.4231 Info Found 55 configuration items
+2019-07-20 11:04:05.1460 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:04:05.1460 Info Message Template Auto Format enabled
+2019-07-20 11:04:05.1460 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:04:05.1460 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:04:05.1460 Info Closing old configuration.
+2019-07-20 11:04:05.1460 Info Found 55 configuration items
+2019-07-20 11:04:24.8381 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:04:24.8381 Info Message Template Auto Format enabled
+2019-07-20 11:04:24.8381 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:04:24.8381 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:04:24.8381 Info Closing old configuration.
+2019-07-20 11:04:24.8447 Info Found 55 configuration items
+2019-07-20 11:04:49.6711 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:04:49.6711 Info Message Template Auto Format enabled
+2019-07-20 11:04:49.6711 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:04:49.6711 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:04:49.6711 Info Closing old configuration.
+2019-07-20 11:04:49.6711 Info Found 55 configuration items
+2019-07-20 11:04:53.5565 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:04:53.5565 Info Message Template Auto Format enabled
+2019-07-20 11:04:53.5565 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:04:53.5565 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:04:53.5565 Info Closing old configuration.
+2019-07-20 11:04:53.5565 Info Found 55 configuration items
+2019-07-20 11:05:14.6787 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:05:14.6787 Info Message Template Auto Format enabled
+2019-07-20 11:05:14.6787 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:05:14.6787 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:05:14.6787 Info Closing old configuration.
+2019-07-20 11:05:14.6787 Info Found 55 configuration items
+2019-07-20 11:06:33.3661 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:06:33.3661 Info Message Template Auto Format enabled
+2019-07-20 11:06:33.3661 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:06:33.3661 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:06:33.3661 Info Closing old configuration.
+2019-07-20 11:06:33.3661 Info Found 55 configuration items
+2019-07-20 11:06:37.2195 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:06:37.2195 Info Message Template Auto Format enabled
+2019-07-20 11:06:37.2195 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:06:37.2195 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:06:37.2195 Info Closing old configuration.
+2019-07-20 11:06:37.2195 Info Found 55 configuration items
+2019-07-20 11:06:55.3547 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:06:55.3547 Info Message Template Auto Format enabled
+2019-07-20 11:06:55.3547 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:06:55.3547 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:06:55.3572 Info Closing old configuration.
+2019-07-20 11:06:55.3572 Info Found 55 configuration items
+2019-07-20 11:07:25.8802 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:07:25.8802 Info Message Template Auto Format enabled
+2019-07-20 11:07:25.8802 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:07:25.8802 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:07:25.8802 Info Closing old configuration.
+2019-07-20 11:07:25.8802 Info Found 55 configuration items
+2019-07-20 11:12:33.7635 Info Configuration file change detected! Reloading in 1000ms...
+2019-07-20 11:12:33.7647 Info Configuration file change detected! Reloading in 1000ms...
+2019-07-20 11:12:33.7647 Info Configuration file change detected! Reloading in 1000ms...
+2019-07-20 11:12:34.7884 Info Reloading configuration...
+2019-07-20 11:12:34.7884 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:12:34.7884 Info Message Template Auto Format enabled
+2019-07-20 11:12:34.7884 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:12:34.7884 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:12:34.7884 Info Closing old configuration.
+2019-07-20 11:12:34.7884 Info Found 55 configuration items
+2019-07-20 11:15:41.8518 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:15:41.8518 Info Message Template Auto Format enabled
+2019-07-20 11:15:41.8518 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:15:41.8518 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:15:41.8518 Info Closing old configuration.
+2019-07-20 11:15:41.8518 Info Found 55 configuration items
+2019-07-20 11:15:47.1294 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:15:47.1294 Info Message Template Auto Format enabled
+2019-07-20 11:15:47.1294 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:15:47.1294 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:15:47.1294 Info Closing old configuration.
+2019-07-20 11:15:47.1294 Info Found 55 configuration items
+2019-07-20 11:15:52.1214 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:15:52.1221 Info Message Template Auto Format enabled
+2019-07-20 11:15:52.1221 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:15:52.1221 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:15:52.1221 Info Closing old configuration.
+2019-07-20 11:15:52.1221 Info Found 55 configuration items
+2019-07-20 11:15:56.1635 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:15:56.1635 Info Message Template Auto Format enabled
+2019-07-20 11:15:56.1635 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:15:56.1635 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:15:56.1635 Info Closing old configuration.
+2019-07-20 11:15:56.1635 Info Found 55 configuration items
+2019-07-20 11:16:01.4248 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:16:01.4248 Info Message Template Auto Format enabled
+2019-07-20 11:16:01.4248 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:16:01.4248 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:16:01.4248 Info Closing old configuration.
+2019-07-20 11:16:01.4248 Info Found 55 configuration items
+2019-07-20 11:16:06.4218 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:16:06.4218 Info Message Template Auto Format enabled
+2019-07-20 11:16:06.4218 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:16:06.4218 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:16:06.4218 Info Closing old configuration.
+2019-07-20 11:16:06.4218 Info Found 55 configuration items
+2019-07-20 11:16:11.4241 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:16:11.4241 Info Message Template Auto Format enabled
+2019-07-20 11:16:11.4241 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:16:11.4241 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:16:11.4241 Info Closing old configuration.
+2019-07-20 11:16:11.4241 Info Found 55 configuration items
+2019-07-20 11:16:16.4242 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:16:16.4242 Info Message Template Auto Format enabled
+2019-07-20 11:16:16.4242 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:16:16.4242 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:16:16.4242 Info Closing old configuration.
+2019-07-20 11:16:16.4242 Info Found 55 configuration items
+2019-07-20 11:16:21.4292 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:16:21.4292 Info Message Template Auto Format enabled
+2019-07-20 11:16:21.4344 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:16:21.4344 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:16:21.4344 Info Closing old configuration.
+2019-07-20 11:16:21.4344 Info Found 55 configuration items
+2019-07-20 11:16:23.3458 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:16:23.3458 Info Message Template Auto Format enabled
+2019-07-20 11:16:23.3458 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:16:23.3458 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:16:23.3458 Info Closing old configuration.
+2019-07-20 11:16:23.3458 Info Found 55 configuration items
+2019-07-20 11:16:23.5930 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:16:23.5930 Info Message Template Auto Format enabled
+2019-07-20 11:16:23.5930 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:16:23.5930 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:16:23.5930 Info Closing old configuration.
+2019-07-20 11:16:23.5930 Info Found 55 configuration items
+2019-07-20 11:16:25.2265 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:16:25.2265 Info Message Template Auto Format enabled
+2019-07-20 11:16:25.2265 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:16:25.2265 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:16:25.2310 Info Closing old configuration.
+2019-07-20 11:16:25.2310 Info Found 55 configuration items
+2019-07-20 11:16:25.2629 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:16:25.2629 Info Message Template Auto Format enabled
+2019-07-20 11:16:25.2629 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:16:25.2629 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:16:25.2629 Info Closing old configuration.
+2019-07-20 11:16:25.2629 Info Found 55 configuration items
+2019-07-20 11:16:30.2661 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:16:30.2661 Info Message Template Auto Format enabled
+2019-07-20 11:16:30.2661 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:16:30.2661 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:16:30.2661 Info Closing old configuration.
+2019-07-20 11:16:30.2661 Info Found 55 configuration items
+2019-07-20 11:16:35.2721 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:16:35.2721 Info Message Template Auto Format enabled
+2019-07-20 11:16:35.2721 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:16:35.2721 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:16:35.2820 Info Closing old configuration.
+2019-07-20 11:16:35.2820 Info Found 55 configuration items
+2019-07-20 11:16:40.2730 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:16:40.2730 Info Message Template Auto Format enabled
+2019-07-20 11:16:40.2730 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:16:40.2807 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:16:40.2807 Info Closing old configuration.
+2019-07-20 11:16:40.2807 Info Found 55 configuration items
+2019-07-20 11:16:45.2741 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:16:45.2741 Info Message Template Auto Format enabled
+2019-07-20 11:16:45.2798 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:16:45.2798 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:16:45.2798 Info Closing old configuration.
+2019-07-20 11:16:45.2798 Info Found 55 configuration items
+2019-07-20 11:16:50.2637 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:16:50.2637 Info Message Template Auto Format enabled
+2019-07-20 11:16:50.2637 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:16:50.2637 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:16:50.2637 Info Closing old configuration.
+2019-07-20 11:16:50.2637 Info Found 55 configuration items
+2019-07-20 11:16:55.2690 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:16:55.2690 Info Message Template Auto Format enabled
+2019-07-20 11:16:55.2690 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:16:55.2690 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:16:55.2690 Info Closing old configuration.
+2019-07-20 11:16:55.2809 Info Found 55 configuration items
+2019-07-20 11:17:00.2675 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:17:00.2675 Info Message Template Auto Format enabled
+2019-07-20 11:17:00.2675 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:17:00.2675 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:17:00.2675 Info Closing old configuration.
+2019-07-20 11:17:00.2675 Info Found 55 configuration items
+2019-07-20 11:17:05.2693 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:17:05.2693 Info Message Template Auto Format enabled
+2019-07-20 11:17:05.2693 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:17:05.2693 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:17:05.2693 Info Closing old configuration.
+2019-07-20 11:17:05.2693 Info Found 55 configuration items
+2019-07-20 11:17:16.5249 Info Message Template Auto Format enabled
+2019-07-20 11:17:16.5610 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:17:16.5610 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:17:16.5836 Info Found 55 configuration items
+2019-07-20 11:17:20.2903 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:17:20.2903 Info Message Template Auto Format enabled
+2019-07-20 11:17:20.2903 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:17:20.2903 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:17:20.2903 Info Closing old configuration.
+2019-07-20 11:17:20.3048 Info Found 55 configuration items
+2019-07-20 11:17:25.2678 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:17:25.2678 Info Message Template Auto Format enabled
+2019-07-20 11:17:25.2678 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:17:25.2678 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:17:25.2678 Info Closing old configuration.
+2019-07-20 11:17:25.2678 Info Found 55 configuration items
+2019-07-20 11:17:30.2687 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:17:30.2687 Info Message Template Auto Format enabled
+2019-07-20 11:17:30.2687 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:17:30.2687 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:17:30.2687 Info Closing old configuration.
+2019-07-20 11:17:30.2687 Info Found 55 configuration items
+2019-07-20 11:17:35.2657 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:17:35.2657 Info Message Template Auto Format enabled
+2019-07-20 11:17:35.2657 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:17:35.2657 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:17:35.2657 Info Closing old configuration.
+2019-07-20 11:17:35.2657 Info Found 55 configuration items
+2019-07-20 11:17:39.8782 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:17:39.8782 Info Message Template Auto Format enabled
+2019-07-20 11:17:39.8782 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:17:39.8782 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:17:39.8782 Info Closing old configuration.
+2019-07-20 11:17:39.8782 Info Found 55 configuration items
+2019-07-20 11:17:40.0600 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:17:40.0600 Info Message Template Auto Format enabled
+2019-07-20 11:17:40.0619 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:17:40.0619 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:17:40.0619 Info Closing old configuration.
+2019-07-20 11:17:40.0619 Info Found 55 configuration items
+2019-07-20 11:17:43.3494 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:17:43.3494 Info Message Template Auto Format enabled
+2019-07-20 11:17:43.3494 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:17:43.3494 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:17:43.3494 Info Closing old configuration.
+2019-07-20 11:17:43.3494 Info Found 55 configuration items
+2019-07-20 11:17:43.3788 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:17:43.3788 Info Message Template Auto Format enabled
+2019-07-20 11:17:43.3788 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:17:43.3788 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:17:43.3788 Info Closing old configuration.
+2019-07-20 11:17:43.3788 Info Found 55 configuration items
+2019-07-20 11:17:48.3899 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:17:48.3899 Info Message Template Auto Format enabled
+2019-07-20 11:17:48.3899 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:17:48.3899 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:17:48.3899 Info Closing old configuration.
+2019-07-20 11:17:48.3899 Info Found 55 configuration items
+2019-07-20 11:17:53.3812 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:17:53.3812 Info Message Template Auto Format enabled
+2019-07-20 11:17:53.3812 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:17:53.3812 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:17:53.3812 Info Closing old configuration.
+2019-07-20 11:17:53.3812 Info Found 55 configuration items
+2019-07-20 11:17:58.3820 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:17:58.3820 Info Message Template Auto Format enabled
+2019-07-20 11:17:58.3820 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:17:58.3820 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:17:58.3820 Info Closing old configuration.
+2019-07-20 11:17:58.3820 Info Found 55 configuration items
+2019-07-20 11:18:01.6475 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:18:01.6475 Info Message Template Auto Format enabled
+2019-07-20 11:18:01.6475 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:18:01.6475 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:18:01.6475 Info Closing old configuration.
+2019-07-20 11:18:01.6537 Info Found 55 configuration items
+2019-07-20 11:18:01.6853 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:18:01.6860 Info Message Template Auto Format enabled
+2019-07-20 11:18:01.6860 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:18:01.6860 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:18:01.6860 Info Closing old configuration.
+2019-07-20 11:18:01.6860 Info Found 55 configuration items
+2019-07-20 11:18:06.6897 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:18:06.6897 Info Message Template Auto Format enabled
+2019-07-20 11:18:06.6897 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:18:06.6897 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:18:06.6897 Info Closing old configuration.
+2019-07-20 11:18:06.6897 Info Found 55 configuration items
+2019-07-20 11:18:11.6913 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:18:11.6913 Info Message Template Auto Format enabled
+2019-07-20 11:18:11.6913 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:18:11.6913 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:18:11.6913 Info Closing old configuration.
+2019-07-20 11:18:11.6913 Info Found 55 configuration items
+2019-07-20 11:18:11.8660 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:18:11.8660 Info Message Template Auto Format enabled
+2019-07-20 11:18:11.8660 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:18:11.8660 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:18:11.8660 Info Closing old configuration.
+2019-07-20 11:18:11.8660 Info Found 55 configuration items
+2019-07-20 11:18:12.8684 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:18:12.8684 Info Message Template Auto Format enabled
+2019-07-20 11:18:12.8684 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:18:12.8684 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:18:12.8684 Info Closing old configuration.
+2019-07-20 11:18:12.8684 Info Found 55 configuration items
+2019-07-20 11:18:17.8769 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:18:17.8769 Info Message Template Auto Format enabled
+2019-07-20 11:18:17.8769 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:18:17.8769 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:18:17.8769 Info Closing old configuration.
+2019-07-20 11:18:17.8769 Info Found 55 configuration items
+2019-07-20 11:18:22.8942 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:18:22.8942 Info Message Template Auto Format enabled
+2019-07-20 11:18:22.8942 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:18:22.8942 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:18:22.8942 Info Closing old configuration.
+2019-07-20 11:18:22.8942 Info Found 55 configuration items
+2019-07-20 11:18:27.8720 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:18:27.8720 Info Message Template Auto Format enabled
+2019-07-20 11:18:27.8720 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:18:27.8720 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:18:27.8738 Info Closing old configuration.
+2019-07-20 11:18:27.8738 Info Found 55 configuration items
+2019-07-20 11:18:32.8767 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:18:32.8767 Info Message Template Auto Format enabled
+2019-07-20 11:18:32.8767 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:18:32.8767 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:18:32.8767 Info Closing old configuration.
+2019-07-20 11:18:32.8767 Info Found 55 configuration items
+2019-07-20 11:18:37.8708 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:18:37.8717 Info Message Template Auto Format enabled
+2019-07-20 11:18:37.8717 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:18:37.8717 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:18:37.8717 Info Closing old configuration.
+2019-07-20 11:18:37.8717 Info Found 55 configuration items
+2019-07-20 11:18:42.8722 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:18:42.8722 Info Message Template Auto Format enabled
+2019-07-20 11:18:42.8734 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:18:42.8734 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:18:42.8734 Info Closing old configuration.
+2019-07-20 11:18:42.8734 Info Found 55 configuration items
+2019-07-20 11:18:47.8784 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:18:47.8784 Info Message Template Auto Format enabled
+2019-07-20 11:18:47.8784 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:18:47.8784 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:18:47.8784 Info Closing old configuration.
+2019-07-20 11:18:47.8914 Info Found 55 configuration items
+2019-07-20 11:18:52.8754 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:18:52.8754 Info Message Template Auto Format enabled
+2019-07-20 11:18:52.8754 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:18:52.8754 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:18:52.8754 Info Closing old configuration.
+2019-07-20 11:18:52.8754 Info Found 55 configuration items
+2019-07-20 11:18:57.8747 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:18:57.8747 Info Message Template Auto Format enabled
+2019-07-20 11:18:57.8747 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:18:57.8747 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:18:57.8747 Info Closing old configuration.
+2019-07-20 11:18:57.8747 Info Found 55 configuration items
+2019-07-20 11:19:02.8723 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:19:02.8723 Info Message Template Auto Format enabled
+2019-07-20 11:19:02.8723 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:19:02.8723 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:19:02.8723 Info Closing old configuration.
+2019-07-20 11:19:02.8749 Info Found 55 configuration items
+2019-07-20 11:19:07.8764 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:19:07.8764 Info Message Template Auto Format enabled
+2019-07-20 11:19:07.8764 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:19:07.8764 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:19:07.8764 Info Closing old configuration.
+2019-07-20 11:19:07.8890 Info Found 55 configuration items
+2019-07-20 11:19:12.8933 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:19:12.8933 Info Message Template Auto Format enabled
+2019-07-20 11:19:12.8933 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:19:12.8933 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:19:12.8933 Info Closing old configuration.
+2019-07-20 11:19:12.9069 Info Found 55 configuration items
+2019-07-20 11:19:17.8691 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:19:17.8691 Info Message Template Auto Format enabled
+2019-07-20 11:19:17.8691 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:19:17.8691 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:19:17.8691 Info Closing old configuration.
+2019-07-20 11:19:17.8715 Info Found 55 configuration items
+2019-07-20 11:19:22.8738 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:19:22.8751 Info Message Template Auto Format enabled
+2019-07-20 11:19:22.8751 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:19:22.8751 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:19:22.8751 Info Closing old configuration.
+2019-07-20 11:19:22.8751 Info Found 55 configuration items
+2019-07-20 11:19:27.8762 Info Configuring from an XML element in nlog.config...
+2019-07-20 11:19:27.8762 Info Message Template Auto Format enabled
+2019-07-20 11:19:27.8762 Info Adding target FileTarget(Name=allfile)
+2019-07-20 11:19:27.8762 Info Adding target FileTarget(Name=ownFile-web)
+2019-07-20 11:19:27.8762 Info Closing old configuration.
+2019-07-20 11:19:27.8762 Info Found 55 configuration items

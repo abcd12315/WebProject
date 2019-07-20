@@ -1,0 +1,30 @@
+
+@{
+    ViewData["Title"] = "User Count";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's User Count.</p>
+<div id="userCountDiv">
+    
+</div>
+
+<script>
+    var a=0
+    function circle(){
+        a+=1
+        $.post("/Home/GetUserCount", {"placeHolder":"Whatever"}, 
+        function (data) {
+          $("#userCountDiv").text(a);
+        }
+   );
+
+
+    }
+    setInterval(circle,5000);
+    
+
+    
+
+
+</script>
