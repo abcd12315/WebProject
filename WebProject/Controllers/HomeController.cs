@@ -16,146 +16,151 @@ using WebProject.Models;
 
 namespace WebProject.Controllers
 {
-	public class HomeController : Controller
-	{
-		private static readonly string  DATA_DIR="data";
-		private readonly ApplicationDbContext _context;
-		private readonly UserManager<ApplicationUser> _userManager;
-		private readonly IEmailSender _emailSender;
-		private readonly ILogger<HomeController> _logger;
+    public class HomeController : Controller
+    {
+        private static readonly string DATA_DIR = "data";
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IEmailSender _emailSender;
+        private readonly ILogger<HomeController> _logger;
         private readonly Logger logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
         private readonly IHostingEnvironment _hostingEnvironment;
-		public HomeController(ApplicationDbContext context, UserManager<ApplicationUser> userManager,
-							IEmailSender emailSender,
+        public HomeController(ApplicationDbContext context, UserManager<ApplicationUser> userManager,
+                            IEmailSender emailSender,
                             IHostingEnvironment hostingEnvironment
-			)
-		{
-			_context = context;
-			_userManager = userManager;
-			_emailSender = emailSender;
+            )
+        {
+            _context = context;
+            _userManager = userManager;
+            _emailSender = emailSender;
             _hostingEnvironment = hostingEnvironment;
-			
-
-		}
-		
-		public IActionResult Index()
-		{
-			logger.Info($"from {HttpContext.Connection.RemoteIpAddress}:{HttpContext.Connection.RemotePort}");
-			return View();
-		}
-
-		public IActionResult Privacy()
-		{
-			return View();
-		}
-
-		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-		public IActionResult Error()
-		{
-			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-		}
-
-		public IActionResult Contact()
-		{
 
 
-			return View();
-		}
-		[HttpPost]
-		public IActionResult Contact(ContactModel model)
-		{
-			string titleWithName = $"You have received a Meesage From{model.Name}";
-			string contentWithEmail = $"this is Message from ${model.Email}:and its title is {model.Title},here is the content of message:\n{model.Content}";
-			_emailSender.SendEmailAsync("398212699@qq.com", titleWithName, contentWithEmail);
+        }
+
+        public IActionResult Index()
+        {
+            logger.Info($"from {HttpContext.Connection.RemoteIpAddress}:{HttpContext.Connection.RemotePort}");
+            return View();
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Contact()
+        {
 
 
-			return View();
-		}
-		public IActionResult Login()
-		{
-			return View();
-		}
-		public IActionResult Profile()
-		{
-			return View();
-		}
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Contact(ContactModel model)
+        {
+            var user=await _userManager.GetUserAsync(User);
+            if(user!=null&&user.EmailConfirmed)
+            {
+            string titleWithName = $"You have received a Meesage From{model.Name}";
+            string contentWithEmail = $"this is Message from ${model.Email}:and its title is {model.Title},here is the content of message:\n{model.Content}";
+            await _emailSender.SendEmailAsync("398212699@qq.com", titleWithName, contentWithEmail);
 
 
-		[HttpPost]
-		public async Task<string> CreateLogTest(CreateLogModel model)
-		{
-			if (!ModelState.IsValid)
-			{
-				return "failed";
-			}
-			if (model.Title == "")
-			{
-				return "please enter a title!";
-			}
+            }
 
-			var user = await _userManager.GetUserAsync(User);
-			if (user==null || user.Id != model.UserId)
-			{
-				return "failed,Invalid attempt,you are not a Valid User";
-			}
-
-			//make sure,there is no same name Log for this User
-			var queryOfLog = _context.Logs.Where(q => q.BelongerId == model.UserId && q.Title == model.Title);
-			if (!queryOfLog.Any())
-			{
-				//Create the Log;
-				var log = new UserLog() { BelongerId = model.UserId, Title = model.Title };
-
-				_context.Logs.Add(log);
-				_context.SaveChanges();
-				return "finished";
-			}
-
-			return "there is a same named log in your list,please create this log by another log name";
+            return View();
+        }
+        public IActionResult Login()
+        {
+            return View();
+        }
+        public IActionResult Profile()
+        {
+            return View();
+        }
 
 
+        [HttpPost]
+        public async Task<string> CreateLogTest(CreateLogModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return "failed";
+            }
+            if (model.Title == "")
+            {
+                return "please enter a title!";
+            }
 
-			
-		}
-		[HttpPost]
-		public string EditLogTest(EditLogModel model)
-		{
-			if (!ModelState.IsValid)
-			{
-				return "failded";
-			}
-			var queryOfLog = _context.Logs.Where(l => l.Id == model.Id);
-			
-			if (!queryOfLog.Any())
-			{
-				return "failed";
-			}
-			var log = queryOfLog.First();
-			log.Content = model.Content;
-			log.Title = model.Title;
-			//_context.Logs.Remove(log);
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null || user.Id != model.UserId)
+            {
+                return "failed,Invalid attempt,you are not a Valid User";
+            }
 
+            //make sure,there is no same name Log for this User
+            var queryOfLog = _context.Logs.Where(q => q.BelongerId == model.UserId && q.Title == model.Title);
+            if (!queryOfLog.Any())
+            {
+                //Create the Log;
+                var log = new UserLog() { BelongerId = model.UserId, Title = model.Title };
 
-			_context.SaveChanges();
+                _context.Logs.Add(log);
+                _context.SaveChanges();
+                return "finished";
+            }
+
+            return "there is a same named log in your list,please create this log by another log name";
 
 
 
-			return "finished";
-		}
-		//this is test action designed for linux
-		[HttpGet]
-		public string GetEnvironment()
-		{
-			return Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-		}
 
-		[HttpGet]
-		public IActionResult GetUserCount()
-		{
+        }
+        [HttpPost]
+        public string EditLogTest(EditLogModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return "failded";
+            }
+            var queryOfLog = _context.Logs.Where(l => l.Id == model.Id);
+
+            if (!queryOfLog.Any())
+            {
+                return "failed";
+            }
+            var log = queryOfLog.First();
+            log.Content = model.Content;
+            log.Title = model.Title;
+            //_context.Logs.Remove(log);
 
 
-			return View();
-		}
+            _context.SaveChanges();
+
+
+
+            return "finished";
+        }
+        //this is test action designed for linux
+        [HttpGet]
+        public string GetEnvironment()
+        {
+            return Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+        }
+
+        [HttpGet]
+        public IActionResult GetUserCount()
+        {
+
+
+            return View();
+        }
 
 
         [HttpPost]
@@ -170,5 +175,5 @@ namespace WebProject.Controllers
 
 
         }
-	}
+    }
 }
